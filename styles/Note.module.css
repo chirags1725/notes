@@ -1,0 +1,44 @@
+.note{
+    position: relative;
+    width: 250px;
+    height: 100px;
+    background-color: red;
+    border-radius: 10px;
+    border:1px solid var(--backgroundside);
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    font-family: 'roboto';
+    font-weight: 1000;
+    box-shadow: 0px 0px 1px 0px var(--fontclr)
+}
+.note:hover{
+  box-shadow:  0px 0px 4px 0px var(--textcolor)
+}
+.note h4{
+  font-size: 1.1em;
+  color:var(--textcolor)
+
+}
+.note h5{
+  font-size: .8em;
+  font-weight: 400;
+  /* color:var(--textcolor) */
+}
+@media (max-width:680px) {
+    .note{
+      width: 100%;
+    }
+  }
+  .bin{
+    padding: 4px;
+    border-radius: 50%;
+    font-size: 1.6em;
+    transition: .1s;
+
+  }
+  .bin:hover{
+    background-color:rgba(255, 5, 5, 0.415);
+
+  }
