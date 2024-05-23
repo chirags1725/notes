@@ -94,7 +94,7 @@ const Note = ({
           {note && (<>{" "}
           <h4>
             {note && note.title.toString().slice(0, 15)}
-            {note && note.note.toString().length > 18
+            {note && note.title.toString().length > 18
               ? "..."
               : note.note.toString().slice(15, 18)}
           </h4>
