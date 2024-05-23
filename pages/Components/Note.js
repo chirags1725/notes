@@ -29,12 +29,6 @@ const Note = ({
     return `linear-gradient(${angle}deg, ${color1}20, ${color2}20)`;
   }, []);
 
-  // const color1 = getRandomColor();
-  //     const color2 = getRandomColor();
-  //     const angle = Math.floor(Math.random() * 360);
-
-  //     const gradient = `linear-gradient(${angle}deg, ${color1}20, ${color2}20)`;
-
   const deletenote = async (id) => {
     fetch("/api/deletenote", {
       method: "POST", // or 'PUT'
@@ -88,21 +82,22 @@ const Note = ({
       )}
 
       {load ? (
-        <Loader></Loader>
+        <Loader />
       ) : (
         <div>
-          {" "}
           <h4>
-            {note && note.title.toString().slice(0, 15)}
-            {note && note.note.toString().length > 18
-              ? "..."
-              : note.note.toString().slice(15, 18)}
+            {note && note.title && note.title.toString().slice(0, 15)}
+            {note &&
+              note.note &&
+              note.note.toString().length > 18 &&
+              "..."}
           </h4>
           <h5>
-            {note && note.note.toString().slice(0, 37)}
-            {note && note.note.toString().length > 40
-              ? "..."
-              : note.note.toString().slice(37, 40)}
+            {note && note.note && note.note.toString().slice(0, 37)}
+            {note &&
+              note.note &&
+              note.note.toString().length > 40 &&
+              "..."}
           </h5>
         </div>
       )}
