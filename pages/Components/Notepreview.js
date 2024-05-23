@@ -89,7 +89,7 @@ const Notepreview = ({ setnotepreview, note, title, labels }) => {
             gap: "4px",
           }}
         >
-          {labels.map((e) => {
+          {labels && labels.map((e) => {
             if (e !== "important") {
               return (
                 <div

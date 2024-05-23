@@ -93,14 +93,14 @@ const Note = ({
         <div>
           {" "}
           <h4>
-            {note.title.toString().slice(0, 15)}
-            {note.note.toString().length > 18
+            {note && note.title.toString().slice(0, 15)}
+            {note && note.note.toString().length > 18
               ? "..."
               : note.note.toString().slice(15, 18)}
           </h4>
           <h5>
-            {note.note.toString().slice(0, 37)}
-            {note.note.toString().length > 40
+            {note && note.note.toString().slice(0, 37)}
+            {note && note.note.toString().length > 40
               ? "..."
               : note.note.toString().slice(37, 40)}
           </h5>
