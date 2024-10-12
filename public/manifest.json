@@ -1,6 +1,6 @@
 {
-    "name": "Your App Name",
-    "short_name": "App",
+    "name": "NotesCloud",
+    "short_name": "NotesCloud",
     "start_url": "/",
     "display": "standalone",
     "background_color": "#ffffff",
