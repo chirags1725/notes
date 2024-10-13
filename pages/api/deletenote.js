@@ -1,7 +1,7 @@
 import { MongoClient } from "mongodb";
 
 import { ref, deleteObject } from "firebase/storage";
-import { storage } from "./firebase";
+import { storage } from "../../lib/firebase";
 
 export default async function handler(req, res) {
   if (req.method == "POST") {
