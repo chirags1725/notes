@@ -3,7 +3,7 @@ import styles from "@/styles/Notepreview.module.css";
 import AlertMessage from "./AlertMessage";
 import { FaCheck } from "react-icons/fa6";
 import { ref, uploadBytes } from "firebase/storage";
-import { storage } from "../../lib/firebase";
+import { storage } from "../api/firebase";
 import { getDownloadURL } from "firebase/storage";
 import { MdOutlineFileUpload } from "react-icons/md";
 
