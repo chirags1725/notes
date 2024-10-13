@@ -22,36 +22,51 @@
     transform: translate(-50%,-50%);
     max-width: 80vw;
     border-radius: 10px;
-    padding: 40px;
     overflow: scroll;
+    padding-top: 20px;
+}
+.note .top{
+    display: flex;
+    justify-content: flex-end;
+    /* right:-20px; */
+    /* top:-10px; */
+    gap: 8px;
+    position: relative;
+    align-items: center;
+    padding-right: 20px;
+    user-select: none;
+}
+.note .body{
+    padding-left: 40px;
+    padding-right: 40px;
+}
+.note .top .tickbutton{
+    color:#547FFF;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    font-size: 1.1em;
+    padding: 10px;
+    padding-right: 2px;
+}
+.note .top .tickbutton:hover{
+    color:#a5a3ff
+
 }
 .note form{
-    overflow: scroll;
+    overflow-y: scroll;
+    overflow-x: hidden;
 
 
-}
-.note button{
-    position: fixed;
-    outline: none;
-    border: 1px solid gray;
-    background: var(--grad);
-    color:var(--textcolor);
-    bottom:0px;
-    right:0px;
-    transform:translate(-50%,50%);
-    border-radius:50%;
-    padding:10px;;
-    font-size:1.5em;
-    align-items:center;
-    display:flex;
 }
 .title{
     margin-bottom:10px;
     font-family:"roboto"
 }
 .text{
-    height: 65%;
-    width: 100%;
+    height: 62%;
+    width: calc(100% - 80px);
+    transform: translateX(40px);
     padding: 20px;
     background:var(--iconbg);
     border: none;
@@ -76,6 +91,8 @@
     padding: 2px;
     padding-left: 10px;
     padding-right: 10px;
+    display: flex;
+    float: inline-end;
 }
 .copy:hover{
     color:#a5a3ff
@@ -142,9 +159,7 @@
     line-height: 14px;    
 }
 .cross{
-    position: fixed;
-    right: 20px;
-    top:20px;
+    position: relative;
     transform: rotate(45deg);
     font-size: 2em;
     font-weight: 100;
@@ -161,4 +176,33 @@
 }
 .cross:hover{
     background-color: rgba(114, 114, 114, 0.546);
+}
+
+
+
+/* HTML: <div class="loader"></div> */
+.loader {
+  width: 20px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 4px solid #0000;
+  border-right-color: green;
+  position: relative;
+  animation: l24 1s infinite linear;
+}
+.loader:before,
+.loader:after {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: inherit;
+  animation: inherit;
+  animation-duration: 2s;
+}
+.loader:after {
+  animation-duration: 4s;
+}
+@keyframes l24 {
+  100% {transform: rotate(1turn)}
 }

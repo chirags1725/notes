@@ -11,6 +11,8 @@ export default function App({ Component, pageProps }) {
   const [label, setlabel] = useState("");
   const [notepreview, setnotepreview] = useState(false);
   const [title, setTitle] = useState("");
+  const [fileName, setFileName] = useState("");
+  const [fileurl, setFileurl] = useState("");
   const [note, setNote] = useState("");
   const [labels, setLabels] = useState("");
   const [searchq, setsearchq] = useState("");
@@ -23,6 +25,8 @@ export default function App({ Component, pageProps }) {
     <>
     <Head>
     <title>Notes - notes on the cloud</title>
+    <link rel="manifest" href="/manifest.json" />
+
         <meta name="description" content="Store, sync, copy-paste, and share your thoughts instantly with Notes on the Cloud – your ideas, always within reach." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
     </Head>
@@ -45,6 +49,8 @@ export default function App({ Component, pageProps }) {
         setlabels={setLabels}
         searchq={searchq}
         setnewnote={setnewnote}
+        setFileName={setFileName}
+        setFileurl={setFileurl}
       />
       {newnote && (
         <Newnote
@@ -60,8 +66,12 @@ export default function App({ Component, pageProps }) {
           note={note}
           title={title}
           labels={labels}
+          fileurl={fileurl}
+          fileName={fileName}
         ></Notepreview>
       )}
     </>
   );
 }
+
+

@@ -22,6 +22,8 @@ export default function Home({
   setlabels,
   searchq,
   setnewnote,
+  setFileName,
+  setFileurl
 }) {
   const [data, setData] = useState("");
   const [filterdata, setfilterdata] = useState("");
@@ -106,6 +108,8 @@ export default function Home({
                       setTitle(e.title);
                       setNote(e.note);
                       setlabels(e.label.split(","));
+                      setFileName(e.filename)
+                      setFileurl(e.file)
                     }}
                   />
                 );
