@@ -1,7 +1,7 @@
 import { MongoClient } from "mongodb";
 
-import { ref, deleteObject } from 'firebase/storage';
-import { storage } from '../../lib/firebase'
+import { ref, deleteObject } from "firebase/storage";
+import { storage } from "../../lib/firebase";
 
 export default async function handler(req, res) {
   if (req.method == "POST") {
@@ -23,7 +23,7 @@ export default async function handler(req, res) {
       const allData = await collection.deleteOne({ _id: o_id });
 
       if (result && result.filename) {
-        const downloadURL = result.file
+        const downloadURL = result.file;
         const regex = /o\/(.*)\?alt=media/;
         const matches = downloadURL.match(regex);
         const filePath = decodeURIComponent(matches[1]);

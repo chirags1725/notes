@@ -23,13 +23,16 @@ export default function App({ Component, pageProps }) {
 
   return (
     <>
-    <Head>
-    <title>Notes - notes on the cloud</title>
-    <link rel="manifest" href="/manifest.json" />
+      <Head>
+        <title>Notes - notes on the cloud</title>
+        <link rel="manifest" href="/manifest.json" />
 
-        <meta name="description" content="Store, sync, copy-paste, and share your thoughts instantly with Notes on the Cloud – your ideas, always within reach." />
+        <meta
+          name="description"
+          content="Store, sync, copy-paste, and share your thoughts instantly with Notes on the Cloud – your ideas, always within reach."
+        />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-    </Head>
+      </Head>
       {(router.pathname === "/" ||
         router.pathname.toString().includes("note")) && (
         <Navbar setlabel={setlabel} setsearchq={setsearchq} searchq={searchq} />
@@ -73,5 +76,3 @@ export default function App({ Component, pageProps }) {
     </>
   );
 }
-
-

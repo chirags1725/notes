@@ -91,19 +91,23 @@ const Note = ({
         <Loader></Loader>
       ) : (
         <div>
-          {note && (<>{" "}
-          <h4>
-            {note && note.title.toString().slice(0, 15)}
-            {note && note.title.toString().length > 18
-              ? "..."
-              : note.title.toString().slice(15, 18)}
-          </h4>
-          <h5>
-            {note && note.note.toString().slice(0, 37)}
-            {note && note.note.toString().length > 40
-              ? "..."
-              : note.note.toString().slice(37, 40)}
-          </h5></>)}
+          {note && (
+            <>
+              {" "}
+              <h4>
+                {note && note.title.toString().slice(0, 15)}
+                {note && note.title.toString().length > 18
+                  ? "..."
+                  : note.title.toString().slice(15, 18)}
+              </h4>
+              <h5>
+                {note && note.note.toString().slice(0, 37)}
+                {note && note.note.toString().length > 40
+                  ? "..."
+                  : note.note.toString().slice(37, 40)}
+              </h5>
+            </>
+          )}
         </div>
       )}
     </div>

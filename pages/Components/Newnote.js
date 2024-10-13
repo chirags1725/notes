@@ -2,12 +2,10 @@ import React, { useState } from "react";
 import styles from "@/styles/Notepreview.module.css";
 import AlertMessage from "./AlertMessage";
 import { FaCheck } from "react-icons/fa6";
-import { ref, uploadBytes } from 'firebase/storage';
-import { storage } from '../../lib/firebase'
-import { getDownloadURL } from 'firebase/storage';
+import { ref, uploadBytes } from "firebase/storage";
+import { storage } from "../../lib/firebase";
+import { getDownloadURL } from "firebase/storage";
 import { MdOutlineFileUpload } from "react-icons/md";
-
-
 
 const Newnote = ({
   setNewnotealert,
@@ -38,31 +36,30 @@ const Newnote = ({
     setFile(e.target.files[0]);
   };
 
-  const handleFileUpload = async (e)=>{
-    e.preventDefault()
-    setFilename(file.name)
-    setLoader(true)
+  const handleFileUpload = async (e) => {
+    e.preventDefault();
+    setFilename(file.name);
+    setLoader(true);
 
     const storageRef = ref(storage, `uploads/${file.name + " " + Date.now()}`);
 
     try {
       await uploadBytes(storageRef, file);
-       // Upload the file
-       setIndicator(true)
-       setLoader(false)
-       
-      console.log('File uploaded successfully!');
+      // Upload the file
+      setIndicator(true);
+      setLoader(false);
+
+      console.log("File uploaded successfully!");
       const downloadURL = await getDownloadURL(storageRef);
 
-      setdownloadurl(downloadURL)
+      setdownloadurl(downloadURL);
       // Optionally, save the file URL to your MongoDB database here
     } catch (error) {
-    setIndicator(false)
-      console.error('Error uploading file:', error);
+      setIndicator(false);
+      console.error("Error uploading file:", error);
     }
-  }
+  };
 
-  
   const tags = {
     important: "linear-gradient(to right, #ffb347, #ffcc33)",
     blue: "linear-gradient(#0575e6, #021b79)",
@@ -98,8 +95,8 @@ const Newnote = ({
         title: title,
         note: note,
         label: selectedTags.join(","),
-        file:downloadURL,
-        filename:downloadURL ? filename : null
+        file: downloadURL,
+        filename: downloadURL ? filename : null,
       }),
     }).then((a) => {
       setNewnotedata(a);
@@ -146,7 +143,7 @@ const Newnote = ({
         }}
       ></div>
 
-<div className={styles.note} id="note">
+      <div className={styles.note} id="note">
         <form onSubmit={submit}>
           <div className={styles.top}>
             <button className={styles.tickbutton} type="submit">
@@ -166,18 +163,32 @@ const Newnote = ({
             <h2 className={styles.title}>New note</h2>
             <div className={styles.double}>
               <div className={styles.input}>
-                <input type="text" value={title} onChange={handletitle} required />
+                <input
+                  type="text"
+                  value={title}
+                  onChange={handletitle}
+                  required
+                />
                 <span>Title</span>
               </div>
             </div>
 
-            <div onClick={pasteFromClipboard} style={{marginTop:"15px"}} className={styles.copy}>
+            <div
+              onClick={pasteFromClipboard}
+              style={{ marginTop: "15px" }}
+              className={styles.copy}
+            >
               {paste}
             </div>
 
             <div className={styles.double}>
               <div className={styles.input}>
-                <textarea value={note} onChange={handlenote} required rows="6" />
+                <textarea
+                  value={note}
+                  onChange={handlenote}
+                  required
+                  rows="6"
+                />
                 <span>Note</span>
               </div>
             </div>
@@ -199,14 +210,52 @@ const Newnote = ({
               ))}
             </div>
 
-            <div style={{ marginTop: "20px", marginBottom:"20px"}}>
-
-              <h2 style={{marginBottom:"10px"}}>Upload File</h2>
-              <input disabled={indicator} type="file" onChange={handleFileChange} />
-              <div style={{marginTop:"10px",display:"flex",alignItems:"center",gap:"10px",textAlign:"center"}}>
-              <button style={{padding:"6px 8px",backgroundColor:"transparent", color:"var(--textcolor)",opacity:!file || indicator ? ".6":"1",border:"1px solid var(--fontclr)",display:"flex",gap:"4px",alignItems:"center"}} onClick={handleFileUpload} disabled={!file || indicator} >Upload file <MdOutlineFileUpload style={{fontSize:"1.4em",alignSelf:"center"}} /></button>
-              {loader &&<div className={styles.loader}></div>}
-              {indicator && <div style={{width:"10px",height:"10px",borderRadius:"50%",background:indicator ? "green":"red"}}></div>}
+            <div style={{ marginTop: "20px", marginBottom: "20px" }}>
+              <h2 style={{ marginBottom: "10px" }}>Upload File</h2>
+              <input
+                disabled={indicator}
+                type="file"
+                onChange={handleFileChange}
+              />
+              <div
+                style={{
+                  marginTop: "10px",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "10px",
+                  textAlign: "center",
+                }}
+              >
+                <button
+                  style={{
+                    padding: "6px 8px",
+                    backgroundColor: "transparent",
+                    color: "var(--textcolor)",
+                    opacity: !file || indicator ? ".6" : "1",
+                    border: "1px solid var(--fontclr)",
+                    display: "flex",
+                    gap: "4px",
+                    alignItems: "center",
+                  }}
+                  onClick={handleFileUpload}
+                  disabled={!file || indicator}
+                >
+                  Upload file{" "}
+                  <MdOutlineFileUpload
+                    style={{ fontSize: "1.4em", alignSelf: "center" }}
+                  />
+                </button>
+                {loader && <div className={styles.loader}></div>}
+                {indicator && (
+                  <div
+                    style={{
+                      width: "10px",
+                      height: "10px",
+                      borderRadius: "50%",
+                      background: indicator ? "green" : "red",
+                    }}
+                  ></div>
+                )}
               </div>
             </div>
           </div>

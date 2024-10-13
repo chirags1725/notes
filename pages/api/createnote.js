@@ -13,8 +13,8 @@ export default async function handler(req, res) {
         title: req.body.title,
         note: req.body.note,
         label: req.body.label,
-        file:req.body.file,
-        filename:req.body.filename
+        file: req.body.file,
+        filename: req.body.filename,
       });
       res.status(200).json("Inserted");
     } catch (error) {
