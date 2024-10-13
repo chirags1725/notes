@@ -4,7 +4,7 @@ const nextConfig = withPWA({
   dest: "public",
   register: true,
   skipWaiting: true,
-  disable: true,
+  disable: false,
   // Add any other Next.js configurations here
 });
 
