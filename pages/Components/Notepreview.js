@@ -150,6 +150,7 @@ const Notepreview = ({
             fileName.endsWith("jpg") ||
             fileName.endsWith("jpeg") ||
             fileName.endsWith("svg") ||
+            fileName.endsWith("webp") ||
             fileName.endsWith("gif")) ? (
             <>
               <h4 style={{ marginBottom: "20px" }}>{fileName}</h4>
@@ -164,6 +165,21 @@ const Notepreview = ({
                 src={fileurl}
                 alt="Uploaded"
               />
+            </>
+          ) : (fileName.endsWith("mp4") ||
+          fileName.endsWith("webm") ||
+          fileName.endsWith("ogg") ||
+          fileName.endsWith("avi") ||
+          fileName.endsWith("mov") ||
+          fileName.endsWith("mkv"))? (
+            <>
+            <h4 style={{ marginBottom: "20px" }}>{fileName}</h4>
+            <video src={fileurl} autoplay controls style={{
+                  width: "calc(100% - 40px)",
+                  position: "absolute",
+                  left: "50%",
+                  transform: "translateX(-50%)",
+                }}></video>
             </>
           ) : fileName && fileName.endsWith("pdf") ? (
             <>
