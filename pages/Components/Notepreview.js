@@ -166,12 +166,12 @@ const Notepreview = ({
                 alt="Uploaded"
               />
             </>
-          ) : (fileName && fileName.endsWith("mp4") ||
+          ) : (fileName && (fileName.endsWith("mp4") ||
           fileName.endsWith("webm") ||
           fileName.endsWith("ogg") ||
           fileName.endsWith("avi") ||
           fileName.endsWith("mov") ||
-          fileName.endsWith("mkv"))? (
+          fileName.endsWith("mkv")))? (
             <>
             <h4 style={{ marginBottom: "20px" }}>{fileName}</h4>
             <video src={fileurl} autoplay controls style={{
