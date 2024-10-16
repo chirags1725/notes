@@ -166,7 +166,7 @@ const Notepreview = ({
                 alt="Uploaded"
               />
             </>
-          ) : (fileName.endsWith("mp4") ||
+          ) : (fileName && fileName.endsWith("mp4") ||
           fileName.endsWith("webm") ||
           fileName.endsWith("ogg") ||
           fileName.endsWith("avi") ||
